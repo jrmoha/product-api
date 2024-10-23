@@ -7,9 +7,9 @@ import {
 } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { JwtService } from '@nestjs/jwt';
 import { LoginDto, RegisterDto } from './dto';
 import { User } from '../user/user.schema';
-import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
@@ -18,6 +18,11 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
+  /**
+   * Register user
+   * @param {RegisterDto} body - Register details
+   * @throws {ConflictException} - Email already exists
+   */
   async register({ email, password, role }: RegisterDto) {
     const emailExists = await this.userModel.findOne({ email });
     if (emailExists) throw new ConflictException('Email already exists');
@@ -28,6 +33,12 @@ export class AuthService {
       status: HttpStatus.CREATED,
     };
   }
+  /**
+   * Login user
+   * @param {LoginDto} body - Login details
+   * @throws {NotFoundException} - Email not found
+   * @throws {UnauthorizedException} - Invalid password
+   */
   async login({ email, password }: LoginDto) {
     const user = await this.userModel.findOne({ email });
     if (!user) throw new NotFoundException('this email does not exist');
@@ -41,9 +52,18 @@ export class AuthService {
       role: user.role,
     });
     return {
-      message: 'User logged in successfully',
-      status: HttpStatus.OK,
+      status: true,
       token,
     };
+  }
+  /**
+   * Get user by id
+   * @param {string} _id - User id
+   * @returns {Promise<User|null>} - User details
+   */
+  async getUser(_id: string): Promise<User | null> {
+    return this.userModel
+      .findById(_id)
+      .select('-password -__v -createdAt -updatedAt');
   }
 }
