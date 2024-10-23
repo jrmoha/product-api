@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { validateEnvFile } from './env.validator';
-import { UserModule } from './user/user.module';
-import { ProductModule } from './product/product.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { validateEnvFile } from './env.validator';
+import { ProductModule } from './product/product.module';
+import { AuthModule } from './auth/authentication.module';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { MongooseModule } from '@nestjs/mongoose';
         uri: configService.get('DATABASE_URI'),
       }),
     }),
-    UserModule,
+    AuthModule,
     ProductModule,
   ],
   controllers: [],
