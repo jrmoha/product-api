@@ -41,7 +41,6 @@ import { Constants } from './config/constant.variables';
     AuthModule,
     ProductModule,
   ],
-  controllers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
