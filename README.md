@@ -38,6 +38,6 @@ $ yarn run start
 $ yarn run start:dev
 ```
 
-## API Documentation
+## API Explorer
 
-The API documentation is available at `/docs` directory.
+The API explorer is available at `/docs` directory.
