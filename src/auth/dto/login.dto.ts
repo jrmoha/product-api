@@ -13,6 +13,6 @@ export class LoginDto {
 
   @IsString()
   @IsStrongPassword({ minLength: 6 }, { message: 'Password is too weak' })
-  @IsNotEmpty({message: 'Password is required'})
+  @IsNotEmpty({ message: 'Password is required' })
   password: string;
 }

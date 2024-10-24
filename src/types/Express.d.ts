@@ -1,4 +1,3 @@
-import { JwtPayload } from 'jsonwebtoken';
 import { User } from '../user/user.schema';
 
 declare global {
