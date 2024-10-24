@@ -595,8 +595,8 @@
         "type": "text/javascript",
         "packages": {},
         "exec": [
-          "if (!pm.environment.get(\"base_url\")) {\r",
-          "    pm.environment.set(\"base_url\", \"localhost:3000\")\r",
+          "if (!pm.collectionVariables.get(\"base_url\")) {\r",
+          "    pm.collectionVariables.set(\"base_url\", \"localhost:3000\")\r",
           "}"
         ]
       }
