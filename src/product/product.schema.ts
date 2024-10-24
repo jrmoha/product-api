@@ -20,5 +20,5 @@ export class Product {
   createdBy: User;
 }
 
-export type UserDocument = HydratedDocument<Product>;
+export type ProductDocument = HydratedDocument<Product>;
 export const ProductSchema = SchemaFactory.createForClass(Product);
