@@ -37,3 +37,7 @@ $ yarn run start
 # watch mode
 $ yarn run start:dev
 ```
+
+## API Documentation
+
+The API documentation is available at `/docs` directory.

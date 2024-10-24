@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "c2957127-b7ad-4c11-a471-2b3eadcc5d61",
+		"name": "products-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19605929"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mostafa@gmail.com\",\r\n    \"password\": \"Mostafa1@1\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"mostafa@gmail.com\",\r\n    \"password\": \"Mostafa1@1\",\r\n    \"role\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-2HmJxbRZwJaz6bW+Lv4VVGsHrck\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Oct 2024 23:05:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\",\n    \"status\": 201\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mostafa@gmail.com\",\r\n    \"password\": \"Mostafa1@1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"mostafa.dash34@gmail.com\",\r\n    \"password\": \"Mostafa1@1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-yM/HUpGLJhNhU7cQkWQsvtjm3iA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Oct 2024 23:05:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE4MjBmNzI1NjVjOGM0MGY1MjU1NGMiLCJlbWFpbCI6Im1vc3RhZmEuZGFzaDM0QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzI5NzI0NzUwLCJleHAiOjE3MzAzMjk1NTB9.9zwH_gv-zhZbha_ESmAAQqhqk8ZPHN1lCkdT8wUL1GI\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Television\",\r\n    \"price\": 3330.3,\r\n    \"category\": \"Electronics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Television\",\r\n    \"price\": 3330.3,\r\n    \"category\": \"Electronics\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "270"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10e-jXQAu8//ygY7S2GW4InkXY7ELI8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Oct 2024 14:49:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Television\",\n    \"price\": 3330.3,\n    \"category\": \"Electronics\",\n    \"createdBy\": {\n        \"_id\": \"67198140f92f9a7ce90c1ad2\",\n        \"email\": \"mostafa@gmail.com\",\n        \"role\": \"admin\"\n    },\n    \"_id\": \"671a5e7370d80a6721a45978\",\n    \"createdAt\": \"2024-10-24T14:49:23.850Z\",\n    \"updatedAt\": \"2024-10-24T14:49:23.850Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "get product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/67190bf8bd1b95db1b216118",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"67190bf8bd1b95db1b216118"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE4MjBmNzI1NjVjOGM0MGY1MjU1NGMiLCJlbWFpbCI6Im1vc3RhZmEuZGFzaDM0QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyOTY5NDUzMSwiZXhwIjoxNzMwMjk5MzMxfQ.D_0lxMSFKuY-9LNYttGGQGAofC1GQpMPCcK3zx9PuRo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/products/67198159f92f9a7ce90c1ad6",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"67198159f92f9a7ce90c1ad6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "369"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"171-Pvu4u7nB4eKJGbdiHk0Fc2XQGDY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Oct 2024 23:06:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"67198159f92f9a7ce90c1ad6\",\n    \"name\": \"Phone\",\n    \"description\": \"New Phone\",\n    \"price\": 333,\n    \"category\": \"Machines\",\n    \"createdBy\": {\n        \"_id\": \"671820f72565c8c40f52554c\",\n        \"email\": \"mostafa.dash34@gmail.com\",\n        \"role\": \"user\",\n        \"createdAt\": \"2024-10-22T22:02:31.740Z\",\n        \"updatedAt\": \"2024-10-22T22:02:31.740Z\"\n    },\n    \"createdAt\": \"2024-10-23T23:06:01.343Z\",\n    \"updatedAt\": \"2024-10-23T23:06:01.343Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/67190bf8bd1b95db1b216118",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"67190bf8bd1b95db1b216118"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "unauthorized response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE4MjBmNzI1NjVjOGM0MGY1MjU1NGMiLCJlbWFpbCI6Im1vc3RhZmEuZGFzaDM0QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyOTY5NDUzMSwiZXhwIjoxNzMwMjk5MzMxfQ.D_0lxMSFKuY-9LNYttGGQGAofC1GQpMPCcK3zx9PuRo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/products/671910572fb8a3e93f35cabc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"671910572fb8a3e93f35cabc"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-Hhyy0aMFRUksvDCU/8u8k/iSkzM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Oct 2024 23:06:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Access denied\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						}
+					]
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"New TV\",\r\n    \"price\": 3400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products/671a5e7370d80a6721a45978",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"671a5e7370d80a6721a45978"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example response",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"New TV\",\r\n    \"price\": 3400\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/671a5e7370d80a6721a45978",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"671a5e7370d80a6721a45978"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f0-/etrkgmog0x02sKfR8rmeqM2dmA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Oct 2024 14:50:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"671a5e7370d80a6721a45978\",\n    \"name\": \"Television\",\n    \"price\": 3400,\n    \"category\": \"Electronics\",\n    \"createdBy\": \"67198140f92f9a7ce90c1ad2\",\n    \"createdAt\": \"2024-10-24T14:49:23.850Z\",\n    \"updatedAt\": \"2024-10-24T14:50:55.979Z\",\n    \"__v\": 0,\n    \"description\": \"New TV\"\n}"
+						}
+					]
+				},
+				{
+					"name": "all products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE4MjBmNzI1NjVjOGM0MGY1MjU1NGMiLCJlbWFpbCI6Im1vc3RhZmEuZGFzaDM0QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyOTY5NDUzMSwiZXhwIjoxNzMwMjk5MzMxfQ.D_0lxMSFKuY-9LNYttGGQGAofC1GQpMPCcK3zx9PuRo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/products",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2227"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b3-5tn/plPsWg/XFTBtUtiEwrp8C5k\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Oct 2024 14:51:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67190bdfbd1b95db1b216116\",\n        \"name\": \"New Phone Mostafa\",\n        \"price\": 3400,\n        \"createdBy\": {\n            \"_id\": \"671820f72565c8c40f52554c\",\n            \"email\": \"mostafa.dash34@gmail.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2024-10-22T22:02:31.740Z\",\n            \"updatedAt\": \"2024-10-22T22:02:31.740Z\"\n        },\n        \"createdAt\": \"2024-10-23T14:44:47.102Z\",\n        \"updatedAt\": \"2024-10-24T14:50:38.933Z\",\n        \"__v\": 0,\n        \"category\": \"Elec\",\n        \"description\": \"New TV\"\n    },\n    {\n        \"_id\": \"67190fcc0522cc03edfbf727\",\n        \"name\": \"Phone\",\n        \"description\": \"New Phone\",\n        \"price\": 333,\n        \"category\": \"Machines\",\n        \"createdBy\": {\n            \"_id\": \"671820f72565c8c40f52554c\",\n            \"email\": \"mostafa.dash34@gmail.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2024-10-22T22:02:31.740Z\",\n            \"updatedAt\": \"2024-10-22T22:02:31.740Z\"\n        },\n        \"createdAt\": \"2024-10-23T15:01:32.711Z\",\n        \"updatedAt\": \"2024-10-23T15:01:32.711Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6719a10ed067c3b721cf64b4\",\n        \"name\": \"Cheese\",\n        \"description\": \"New Phone\",\n        \"price\": 333,\n        \"category\": \"Machines\",\n        \"createdBy\": {\n            \"_id\": \"671820f72565c8c40f52554c\",\n            \"email\": \"mostafa.dash34@gmail.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2024-10-22T22:02:31.740Z\",\n            \"updatedAt\": \"2024-10-22T22:02:31.740Z\"\n        },\n        \"createdAt\": \"2024-10-24T01:21:18.985Z\",\n        \"updatedAt\": \"2024-10-24T01:21:18.985Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"671a5c7fcf8ac4a7f23a7002\",\n        \"name\": \"Gloves\",\n        \"description\": \"New Phone\",\n        \"price\": 333,\n        \"category\": \"Machines\",\n        \"createdBy\": {\n            \"_id\": \"671820f72565c8c40f52554c\",\n            \"email\": \"mostafa.dash34@gmail.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2024-10-22T22:02:31.740Z\",\n            \"updatedAt\": \"2024-10-22T22:02:31.740Z\"\n        },\n        \"createdAt\": \"2024-10-24T14:41:03.343Z\",\n        \"updatedAt\": \"2024-10-24T14:41:03.343Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"671a5de770d80a6721a45968\",\n        \"name\": \"Shoes\",\n        \"description\": \"New Phone\",\n        \"price\": 333,\n        \"category\": \"Machines\",\n        \"createdBy\": {\n            \"_id\": \"67198140f92f9a7ce90c1ad2\",\n            \"email\": \"mostafa@gmail.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2024-10-23T23:05:36.305Z\",\n            \"updatedAt\": \"2024-10-23T23:05:36.305Z\"\n        },\n        \"createdAt\": \"2024-10-24T14:47:03.806Z\",\n        \"updatedAt\": \"2024-10-24T14:47:03.806Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"671a5e7370d80a6721a45978\",\n        \"name\": \"Television\",\n        \"price\": 3400,\n        \"category\": \"Electronics\",\n        \"createdBy\": {\n            \"_id\": \"67198140f92f9a7ce90c1ad2\",\n            \"email\": \"mostafa@gmail.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2024-10-23T23:05:36.305Z\",\n            \"updatedAt\": \"2024-10-23T23:05:36.305Z\"\n        },\n        \"createdAt\": \"2024-10-24T14:49:23.850Z\",\n        \"updatedAt\": \"2024-10-24T14:50:55.979Z\",\n        \"__v\": 0,\n        \"description\": \"New TV\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
