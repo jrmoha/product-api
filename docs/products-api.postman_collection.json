@@ -680,6 +680,10 @@
 	],
 	"variable": [
 		{
+			"key": "base_url",
+			"value": "localhost:3000"
+		},
+		{
 			"key": "token",
 			"value": ""
 		}
