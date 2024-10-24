@@ -5,7 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { Request } from 'express';
-import { UserRole } from '../user/user.schema';
+import { UserRole } from '../../user/user.schema';
 
 @Injectable()
 export class AdminGuard implements CanActivate {

@@ -2,6 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as bcrypt from 'bcryptjs';
 import { HydratedDocument } from 'mongoose';
+import { Constants } from '../config/constant.variables';
 
 export enum UserRole {
   ADMIN = 'admin',
@@ -27,7 +28,7 @@ export const UserSchema = SchemaFactory.createForClass(User);
 UserSchema.index({ email: 1 });
 
 const configService = new ConfigService();
-const saltRounds = configService.get<number>('SALT_ROUNDS');
+const saltRounds = configService.get<number>(Constants.password.saltRounds);
 
 UserSchema.pre('save', async function (next) {
   try {
