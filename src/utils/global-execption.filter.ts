@@ -40,7 +40,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     }
 
     response.status(status).json({
-      path: request.url,
+      path: request.originalUrl,
       message,
       statusCode: status,
       timestamp: new Date().toISOString(),
